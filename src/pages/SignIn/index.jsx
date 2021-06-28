@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FiEyeOff, FiEye, FiCheck } from "react-icons/fi";
 import { FaExclamation, FaArrowLeft } from "react-icons/fa";
 import { Container, Content, Background, AnimationContainer } from "./styles";
@@ -46,9 +46,15 @@ export function SignIn() {
     }
   }
 
-  function onSubmitForm() {
+  function onSubmitForm(e) {
     if (cpfOk && emailOk && passwordOk) {
       openModal();
+      setEmailOk(false);
+      setCpfOk(false);
+      e.target.form[0].value = "";
+      e.target.form[1].value = "";
+      e.target.form[2].value = "";
+      e.target.form[3].value = "";
     } else {
       alert("Por favor, preencha os campos corretamente");
     }
@@ -213,7 +219,7 @@ export function SignIn() {
               )}
             </div>
 
-            <button type="button" onClick={() => onSubmitForm()}>
+            <button type="button" onClick={(e) => onSubmitForm(e)}>
               CADASTRAR
             </button>
             <button type="button">JÁ POSSUI CADASTRO? FAÇA O LOGIN AQUI</button>

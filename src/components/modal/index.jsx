@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import reactDom from "react-dom";
+import { useState } from "react";
 
 import { ModalOverlay, ModalWrapper, Modal } from "./styles";
 
