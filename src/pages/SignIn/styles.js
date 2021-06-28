@@ -51,6 +51,16 @@ const appearFromRight = keyframes`
   }
 `;
 
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  } to {
+    opacity: 1;
+    transform: translateX(0)
+  }
+`;
+
 export const AnimationContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -195,6 +205,7 @@ export const AnimationContainer = styled.div`
 `;
 
 export const Background = styled.div`
+  animation: ${appearFromLeft} 1s;
   flex: 1;
   background: url(${signInBackground}) no-repeat center;
   background-size: 85%;
